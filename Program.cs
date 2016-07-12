@@ -9,13 +9,37 @@ namespace Cheers
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("What's your name?");
-            Console.Write("> ");
-            String user_name = Console.ReadLine(); // Read from terminal save to a variable
+            // Variables section
+            String prompt = "> ";
+            String requires_an = "halfnorsemix";
 
+            Console.WriteLine("What's your name?");
+            Console.Write(prompt);
+            String user_name = Console.ReadLine().ToLower(); // Read from terminal save to a variable
+            
             for (int i = 0; i < user_name.Length; i++) {
-                Console.WriteLine("Give me a..." + user_name[i]);
+                String cheer_prefix = "Give me a"; 
+                if (requires_an.Contains(user_name[i])) {
+                    // Then it's in the requires_an arry
+                    Console.WriteLine(cheer_prefix + "n.. " + user_name[i]);
+                } else {
+                    // Does not require an "an" 
+                    Console.WriteLine(cheer_prefix + ".. " + user_name[i]);
+                }
             }
+
+
+            /*
+            for (int i = 0; i < user_name.Length; i++) {
+                String cheer_prefix = "Give me a"; 
+                if (requires_an.IndexOf(user_name[i]) > -1) {
+                    // Then it's in the requires_an arry
+                    Console.WriteLine(cheer_prefix + "n.. " + user_name[i]);
+                } else {
+                    // Does not require an "an" 
+                    Console.WriteLine(cheer_prefix + ".. " + user_name[i]);
+                }
+            } */
 
             // user_name.ToUpper() is turning the user's name to uppercase.
             // ToUpper() is functionality specific to Strings.
